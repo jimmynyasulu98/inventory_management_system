@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' =>['auth', 'admin']], function(){
+
+    Route::get('/dash', function(){
+
+        return view('admin.home');
+    });
+    Route::get('/addsupplier' , [App\Http\Controllers\Admin\AdminController::class, 'addSupplier'])->name('addSupplier');
+});

@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Source Serif Pro";
+}
+.jumbotron {
+  background-image: url("../images/landing.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  border-radius: 0px !important;
+}
+.jumbotron h1 {
+  margin: 30px 0;
+  font-size: 20px;
+  line-height: 1.5;
+}
+.intro {
+  padding-top: 160px;
+}
+
+.navbar-nav a {
+  margin: 0 20px;
+  margin-top: 30px;
+}
+
+.navbar img {
+  width: 90;
+  border-radius: 50px;
+  margin-left: 10px;
+  height: 60px;
+}
+.navbar span {
+  color: #ffffff;
+}
+ul.nav li a {
+  color: #ffffff;
+}
+
+.container-fluid a {
+  color: #686868;
+  margin-left: 400px;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border: 5;
+  border-top: 5px solid rgba(22, 22, 22, 0.1);
+}
+.container-fluid span {
+  margin-left: 300px;
+  padding-top: 5;
+  padding-bottom: 5;
+}

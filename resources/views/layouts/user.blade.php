@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Admin Dashboard</title>
+    <title>User Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -41,7 +41,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-home"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Admin Side</div>
+            <div class="sidebar-brand-text mx-3">User side</div>
         </a>
 
         <!-- Divider -->
@@ -49,7 +49,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/dash">
+            <a class="nav-link" href="/home">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a
             >
@@ -72,7 +72,7 @@
                 aria-controls="collapseTwo"
             >
                 <i class="fad fa-layer-group"></i>
-                <span>Stock</span>
+                <span>Supply</span>
             </a>
             <div
                 id="collapseTwo"
@@ -81,36 +81,15 @@
                 data-parent="#accordionSidebar"
             >
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Stock:</h6>
-                    <a class="collapse-item" href="/add-to-stock-list">Add to Stock</a>
-                    <a class="collapse-item" href="/manage-stock">Manage Stock</a>
-                    <a class="collapse-item" href="/orders">Orders</a>
+                    <h6 class="collapse-header">Supply:</h6>
+                    <a class="collapse-item" href="/my-orders">My Order</a>
+                    <a class="collapse-item" href="#">Order History</a>
                 </div>
             </div>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
 
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-parachute-box"></i>
-                <span>Supplier</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Supplier:</h6>
-                    <a class="collapse-item" href="/addsupplier">Add a Supplier</a>
-                    <a class="collapse-item" href="/manage-supplier">Manage a Supplier</a>
-
-
-                </div>
-            </div>
-        </li>
-
-        <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block" />
 
         <!-- Sidebar Toggler (Sidebar) -->
@@ -122,12 +101,12 @@
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content-wrapper" class="d-flex flex-column ">
         <!-- Main Content -->
         <div id="content">
             <!-- Topbar -->
-            <nav
-                class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+            <navbar
+                class="nav navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
             >
                 <!-- Sidebar Toggle (Topbar) -->
                 <button
@@ -141,7 +120,7 @@
                 <form
                     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
                 >
-                    <div class="input-group">
+                    <div class="input-group pt-2">
                         <input
                             type="text"
                             class="form-control bg-light border-0 small"
@@ -159,7 +138,7 @@
 
 
                 <!-- Topbar Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto ">
                     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <a
@@ -198,6 +177,10 @@
                     </li>
 
                     <div class="topbar-divider d-none d-sm-block"></div>
+                    <li class = "pt-4 pr-1"  > <i class = "fa fa-shopping-cart" aria-hidden ="true"></i></li>
+                    <li class = "pt-4" > <a href="/shopping-cart" > Shopping cart</a> </li>
+                     <span class="badge badge-light pl-1 pt-4">{{Session::has('cart')? Session::get('cart')->totalQuantity : ''}}</span>
+                    <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
                     <li class="nav-item dropdown no-arrow">
@@ -215,7 +198,7 @@
                   >
                             <img
                                 class="img-profile rounded-circle"
-                                src="/images/img/undraw_profile.svg"
+                                src="/images/img/undraw_rocket.svg"
                             />
                         </a>
                         <!-- Dropdown - User Information -->
@@ -250,11 +233,11 @@
                         </div>
                     </li>
                 </ul>
-            </nav>
+            </navbar>
 
             <!-- Content Row -->
 
-                @yield('content')
+            @yield('content')
         </div>
 
 
@@ -282,9 +265,7 @@
 <!-- Bootstrap core JavaScript-->
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Sweetalert js -->
 <script src="/js/sweetalerts.js"></script>
 <script >
     @if (session('status'))

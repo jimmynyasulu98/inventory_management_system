@@ -4,16 +4,21 @@
 
 @section('content')
     <div class="row">
-        <!-- Area Chart -->
+
         <div class="container " >
             <div class="card shadow">
-                <!-- Card Header - Dropdown -->
+
                 <div
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                 >
                     <h6 class="m-0 font-weight-bold text-primary">
                        Add a supplier
                     </h6>
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
                 </div>
                 <!-- Card Body -->
@@ -25,8 +30,8 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>user type</th>
-                                <th>make supplier</th>
-                                <th>make admin</th>
+                                <th>Edit</th>
+
                                 <th>Delete user</th>
 
                             </tr>
@@ -36,13 +41,18 @@
                             <tr>
                                 <td>{{$users -> name}}</td>
                                 <td>{{$users -> email}}</td>
-                                <td>{{$users -> user_type}}</td>
+
+                                @if($users->user_type == "admin")
+                                    <td>{{$users -> user_type}}</td>
+                                @elseif($users->user_type == "supplier")
+                                    <td>{{$users -> user_type}}</td>
+                                @else
+                                    <td>norma user</td>
+                                @endif
                                 <td>
-                                    <a href="#" class ="btn btn-success">add</a>
+                                    <a href="/edit-user/{{$users->id}}" class ="btn btn-success">edit</a>
                                 </td>
-                                <td>
-                                    <a href="#" class ="btn btn-success">add</a>
-                                </td>
+
                                 <td>
                                     <a href="#" class ="btn btn-danger">delete</a>
                                 </td>

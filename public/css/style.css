@@ -24,6 +24,9 @@
   margin: 0 20px;
   margin-top: 30px;
 }
+.thumbnail img{
+    max-height:150px;
+}
 
 .navbar img {
   width: 90;
@@ -46,7 +49,7 @@ ul.nav li a {
 hr {
   margin-top: 1rem;
   margin-bottom: 2rem;
-  border: 5;
+  border:5;
   border-top: 5px solid rgba(22, 22, 22, 0.1);
 }
 .container-fluid span {

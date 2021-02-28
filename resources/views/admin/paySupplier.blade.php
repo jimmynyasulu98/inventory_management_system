@@ -13,10 +13,10 @@
                 <form action = "/add-suppliable-item" method="POST">
                     {{csrf_field()}}
 
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Item name:</label>
-                            <input type="text" class="form-control" name = "item" id="recipient-name">
-                        </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Item name:</label>
+                        <input type="text" class="form-control" name = "item" id="recipient-name">
+                    </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -69,7 +69,7 @@
                             </tbody>
                         </table>
 
-                        {{$items->links()}}
+                        {{$supplied->links()}}
 
                     </div>
 
@@ -85,43 +85,47 @@
                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
                 >
                     <h6 class="m-0 font-weight-bold text-primary">
-                        Supplieble Items
+                        More Details
                     </h6>
 
                 </div>
 
                 <div class="card-body">
-                    <div class ="table-responsive">
-                        <table class="table table-dark table-striped">
-                            <thead class = "text-primary">
-                            <tr>
-                                <th>Item ID</th>
-                                <th>Item name</th>
+                    <div class="container-fluid" style="border:1px solid #cecece;">
+                        <div class="row">
+                            <div class="col-xs-12"><Strong> Supplier Id :</Strong></div>
 
-                            </tr>
-                            </thead>
-                            <tbody>
+                            <div class="col-xs-12 pl-3"> <span class=" badge badge-primary">{{$supplierbalance ->supplier_id}} </span> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 "> <strong>Supplier name : </strong></div>
+                            <div class="col-xs-12 pl-3 text-primary"><strong>{{$supplierbalance ->supplierName}}</strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 "> <strong>Outstanding Balance : </strong></div>
+                            <div class="col-xs-12 pl-1 text-danger"><strong>MK{{$supplierbalance ->balance}}</strong></div>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="container-fluid " style="border:2px solid #cecece;">
 
-                            @foreach($items as $item)
-                                <tr>
-                                    <td>{{$item ->id}}</td>
-                                    <td>{{$item -> name}}</td>
+                        <form action = "/pay-supplier/{{$supplierbalance->supplier_id}} " method="POST">
+                            {{csrf_field()}}
+                            {{method_field('PUT')}}
+                            <div class="form-group">
+                                <label for="amount"><strong>Pay supplier</strong></label>
+                                <input type="number" name ="amount" class="form-control" id="amount" placeholder="Enter amount">
+                            </div>
 
-
-                                </tr>
-
-
-                            @endforeach
-
-                            </tbody>
-                        </table>
-                        <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#Modal">Add</button>
-
-                        {{$items->links()}}
-
+                            <button type="submit" class="btn btn-primary">Pay</button>
+                        </form>
+                        <br>
                     </div>
 
+
                 </div>
+
             </div>
         </div>
     </div>

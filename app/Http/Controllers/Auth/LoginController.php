@@ -33,6 +33,9 @@ class LoginController extends Controller
 
             return 'dash';
         }
+        elseif (Auth::user()->user_type == 'supplier'){
+            return 'supplier-dash';
+        }
         else{
             return 'home';
         }

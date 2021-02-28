@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Admin Dashboard</title>
+    <title>Supplier Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link
@@ -41,7 +41,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-home"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Admin Side</div>
+            <div class="sidebar-brand-text mx-3">Supplier</div>
         </a>
 
         <!-- Divider -->
@@ -49,7 +49,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="/dash">
+            <a class="nav-link" href="/supplier-dash">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a
             >
@@ -72,7 +72,7 @@
                 aria-controls="collapseTwo"
             >
                 <i class="fad fa-layer-group"></i>
-                <span>Stock</span>
+                <span>Supply</span>
             </a>
             <div
                 id="collapseTwo"
@@ -81,36 +81,16 @@
                 data-parent="#accordionSidebar"
             >
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Stock:</h6>
-                    <a class="collapse-item" href="/add-to-stock-list">Add to Stock</a>
-                    <a class="collapse-item" href="/manage-stock">Manage Stock</a>
-                    <a class="collapse-item" href="/orders">Orders</a>
+                    <h6 class="collapse-header">Supply:</h6>
+                    <a class="collapse-item" href="/select-item">Supply item</a>
+                    <a class="collapse-item" href="/recently-supplied">Recently supplied</a>
+                    <a class="collapse-item" href="#">History</a>
                 </div>
             </div>
         </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
 
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-parachute-box"></i>
-                <span>Supplier</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Supplier:</h6>
-                    <a class="collapse-item" href="/addsupplier">Add a Supplier</a>
-                    <a class="collapse-item" href="/manage-supplier">Manage a Supplier</a>
-
-
-                </div>
-            </div>
-        </li>
-
-        <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block" />
 
         <!-- Sidebar Toggler (Sidebar) -->
@@ -215,7 +195,7 @@
                   >
                             <img
                                 class="img-profile rounded-circle"
-                                src="/images/img/undraw_profile.svg"
+                                src="/images/img/undraw_profile_2.svg"
                             />
                         </a>
                         <!-- Dropdown - User Information -->
@@ -254,7 +234,7 @@
 
             <!-- Content Row -->
 
-                @yield('content')
+            @yield('content')
         </div>
 
 
@@ -282,9 +262,7 @@
 <!-- Bootstrap core JavaScript-->
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Sweetalert js -->
 <script src="/js/sweetalerts.js"></script>
 <script >
     @if (session('status'))
